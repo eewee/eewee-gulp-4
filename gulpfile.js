@@ -95,7 +95,18 @@ const scripts = () =>
 // IMAGES
 const images = () =>
     gulp.src(paths.images.src, {since: gulp.lastRun(images)} )
-        .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 5 }),
+            imagemin.svgo({
+                plugins: [
+                    {
+                        removeViewBox: false,
+                        collapseGroups: true
+                    }
+                ]
+            })]))
         .pipe(gulp.dest(paths.images.dest))
         //.pipe(notify("Images ok !"))
 

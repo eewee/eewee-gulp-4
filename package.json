@@ -1,7 +1,7 @@
 {
   "name": "eewee-gulp-4",
   "version": "1.0.0",
-  "description": "",
+  "description": "Scss, Js, Image, Browser-Sync",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
